@@ -1,0 +1,51 @@
+.toolbar-container {
+    margin: 0;
+    background: linear-gradient(90deg, rgba(120,0,180,1) 0%, rgba(74,0,147,1) 100%);
+    color: white;
+    min-height: 3em;
+}
+
+.toolbar {
+    margin: 0;
+    padding: 1em;
+    list-style: none;
+}
+
+.toolbar li {
+    display: inline;
+    padding: 1em .25em .25em;
+}
+
+.toolbar-title {
+    font-size: larger;
+}
+
+.toolbar-button .MuiButton-label {
+    color: white;
+}
+
+.toolbar-toggler {
+    display: none;
+}
+
+.toolbar-toggle-label {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .toolbar-toggle-label {
+        display: inline-block;
+    }
+
+    .toolbar li {
+        display: block;
+    }
+
+    .toolbar {
+        display: block;
+    }
+
+    .toolbar-toggler:checked~.toolbar .toolbar-item {
+        display: none;
+    }
+}
