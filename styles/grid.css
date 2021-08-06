@@ -1,0 +1,39 @@
+.container {
+    margin: 1em;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(calc(100%/40), 2fr));
+    grid-auto-rows: 2fr;
+  }
+  
+.grid::before {
+  content: '';
+  padding-bottom: 100%;
+}
+
+.grid > :first-child, .grid::before {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.grid > .empty {
+  background: #E0E0E0;
+  border: 0.1em white solid;
+}
+
+.grid > .wall {
+  background: black;
+  border: 0.1em white solid;
+}
+
+.grid > .start {
+  background: green;
+  border: 0.1em white solid;
+}
+
+.grid > .finish {
+  background: red;
+  border: 0.1em white solid;
+}

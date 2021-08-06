@@ -1,15 +1,13 @@
 import Layout from "../components/Layout";
 import Toolbar from "../components/Toolbar";
-
-import styles from '../styles/Home.module.css';
+import Grid from "../components/Grid.jsx";
 
 export default function Home() {
   return (
     <div>
       <Toolbar/>
       <Layout title={"Pathfinder Visualizer"}>
-
-        <h1>Hello World</h1>
+        <Grid/>
       </Layout>
     </div>
   )
