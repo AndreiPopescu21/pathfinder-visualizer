@@ -1,18 +1,29 @@
 import { useState, useEffect } from "react";
 
 import BoardManager from "../lib/BoardManager";
+import Square from "../lib/Square";
 
-const Grid = () => {
+const Grid = ({selectedClear}) => {
+
     const [isMouseDownOnGrid, setIsMouseDownOnGrid] = useState(false);
     const [isStartSquareDragged, setIsStartSquareDragged] = useState(false);
     const [isFinishSquareDragged, setIsFinishSquareDragged] = useState(false);
 
     const [board, setBoard] = useState([]);
-    const boardManager = new BoardManager(setBoard);
+    const boardManager = new BoardManager(setBoard, selectedClear);
 
     useEffect(() => {
         boardManager.initBoard();
     }, []);
+
+    useEffect(() => {
+        if(selectedClear == "Board")
+            boardManager.clearBoard();
+        else if(selectedClear == "Walls")
+            boardManager.clearByState(Square.WALL);
+        else 
+            boardManager.clearByState(Square.PATH);
+    }, [selectedClear])
 
     useEffect(() => {
         console.log(BoardManager.startRow);

@@ -5,7 +5,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import RunIcon from '@material-ui/icons/PlayArrow';
 import MenuIcon from '@material-ui/icons/Menu';
 
-const Toolbar = () => {
+const Toolbar = ({setSelectedClear}) => {
     const algorithms = ["Djikstra", "A*", "BFS", "DFS"];
     const mazeGenerationTehniques = ["Recursive", "Veritcal"];
     const clearOptions = ["Board", "Walls", "Path"];
@@ -13,7 +13,6 @@ const Toolbar = () => {
 
     const [selectedAlgorithm, setSelectedAlgorithm] = useState("");
     const [selectedMazeGenerationTehniques, setMazeGenerationTehniques] = useState("");
-    const [selectedClear, setSelectedClear] = useState("");
     const [selectedSpeed, setSelectedSpeed] = useState("");
 
     return(
