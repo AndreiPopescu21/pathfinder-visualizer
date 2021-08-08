@@ -37,3 +37,13 @@
   background: red;
   border: 0.1em white solid;
 }
+
+.grid > .visited {
+  background: blue;
+  border: 0.1em white solid;
+}
+
+.grid > .path {
+  background: yellow;
+  border: 0.1em white solid;
+}

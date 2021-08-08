@@ -5,22 +5,18 @@ import Tooltip from '@material-ui/core/Tooltip';
 import RunIcon from '@material-ui/icons/PlayArrow';
 import MenuIcon from '@material-ui/icons/Menu';
 
-const Toolbar = ({setSelectedClear}) => {
-    const algorithms = ["Djikstra", "A*", "BFS", "DFS"];
+const Toolbar = ({selectedAlgorithm, setSelectedAlgorithm, setSelectedClear, setVisualize, setSelectedSpeed,setMazeGenerationTehniques}) => {
+    const algorithms = ["Dijkstra", "A*", "BFS", "DFS"];
     const mazeGenerationTehniques = ["Recursive", "Veritcal"];
     const clearOptions = ["Board", "Walls", "Path"];
-    const speedOptions = ["Slow", "Medium", "Fast", "Instant"];
-
-    const [selectedAlgorithm, setSelectedAlgorithm] = useState("");
-    const [selectedMazeGenerationTehniques, setMazeGenerationTehniques] = useState("");
-    const [selectedSpeed, setSelectedSpeed] = useState("");
+    const speedOptions = ["Slow", "Medium", "Fast"];
 
     return(
         <div className="toolbar-container">
             <input type="checkbox" 
                    className="toolbar-toggler" 
                    id="toolbar-toggler" 
-                   defaultChecked="true"/>
+                   defaultChecked/>
             <ul className="toolbar">
                 <label className="toolbar-toggle-label" 
                        htmlFor="toolbar-toggler">
@@ -60,7 +56,8 @@ const Toolbar = ({setSelectedClear}) => {
                                 variant="contained" 
                                 color="secondary"
                                 disabled={selectedAlgorithm==""}
-                                endIcon={<RunIcon/>}> 
+                                endIcon={<RunIcon/>}
+                                onClick={() => setVisualize(true)}> 
                                 Visualize 
                         </Button>
                     </span>
