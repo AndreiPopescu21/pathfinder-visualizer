@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 
 import DFS from "../lib/Algorithms/DFS";
+import BFS from "../lib/Algorithms/BFS";
+
 import BoardManager from "../lib/BoardManager";
 import Square from "../lib/Square";
 
@@ -104,6 +106,9 @@ const Grid = ({selectedAlgorithm, selectedClear, setSelectedClear, visualize, se
         switch(selectedAlgorithm) {
             case "DFS":
                 algorithm = new DFS(boardManager);
+                break;
+            case "BFS":
+                algorithm = new BFS(boardManager);
                 break;
             default:
                 algorithm = new DFS(boardManager);
