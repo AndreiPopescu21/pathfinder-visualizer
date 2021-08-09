@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 import DFS from "../lib/Algorithms/DFS";
 import BFS from "../lib/Algorithms/BFS";
+import Dijkstra from "../lib/Algorithms/Dijkstra";
 
 import BoardManager from "../lib/BoardManager";
 import Square from "../lib/Square";
@@ -100,7 +101,8 @@ const Grid = ({selectedAlgorithm, selectedClear, setSelectedClear, visualize, se
 
     const visualizeAlgorithm = () => {
         boardManager.clearByState("path");
-        boardManager.clearByState("visited");
+        boardManager.clearByState("visited"); 
+        BoardManager.clearLastVisitedSquare();
 
         var algorithm;
         switch(selectedAlgorithm) {
@@ -109,6 +111,9 @@ const Grid = ({selectedAlgorithm, selectedClear, setSelectedClear, visualize, se
                 break;
             case "BFS":
                 algorithm = new BFS(boardManager);
+                break;
+            case "Dijkstra":
+                algorithm = new Dijkstra(boardManager);
                 break;
             default:
                 algorithm = new DFS(boardManager);
