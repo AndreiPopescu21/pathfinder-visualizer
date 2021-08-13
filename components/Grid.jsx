@@ -55,7 +55,6 @@ const Grid = ({selectedAlgorithm, selectedClear, setSelectedClear, visualize, se
     }, [visualize]);
 
     useEffect(() => {
-        console.log(isMazeGenerating)
         if(isMazeGenerating)
             boardManager.generateMaze(mazeGenerationTehniques, setIsMazeGenerating, setMazeGeneratingTehniques);
     }, [mazeGenerationTehniques]);

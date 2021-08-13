@@ -8,7 +8,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 const Toolbar = ({selectedAlgorithm, setSelectedAlgorithm, setSelectedClear, setVisualize, 
     setSelectedSpeed,setMazeGenerationTehniques, setIsMazeGenerating}) => {
     const algorithms = ["Dijkstra", "A*", "BFS", "DFS"];
-    const mazeGenerationTehniques = ["Random", "DFS", "Prim's Algorithm", "Krusal's Algorithm"];
+    const mazeGenerationTehniques = ["Random", "DFS", "Prim's Algorithm"];
     const clearOptions = ["Board", "Walls", "Path"];
     const speedOptions = ["Slow", "Medium", "Fast"];
 
