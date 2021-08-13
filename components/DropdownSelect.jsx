@@ -5,11 +5,13 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
-export default function DropdownSelect({buttonText, options, setOption, className}) {
+export default function DropdownSelect({buttonText, options, setOption, className, callback}) {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
+    if(callback)
+      callback();
   };
 
   const handleClose = () => {

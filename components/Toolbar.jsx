@@ -5,9 +5,10 @@ import Tooltip from '@material-ui/core/Tooltip';
 import RunIcon from '@material-ui/icons/PlayArrow';
 import MenuIcon from '@material-ui/icons/Menu';
 
-const Toolbar = ({selectedAlgorithm, setSelectedAlgorithm, setSelectedClear, setVisualize, setSelectedSpeed,setMazeGenerationTehniques}) => {
+const Toolbar = ({selectedAlgorithm, setSelectedAlgorithm, setSelectedClear, setVisualize, 
+    setSelectedSpeed,setMazeGenerationTehniques, setIsMazeGenerating}) => {
     const algorithms = ["Dijkstra", "A*", "BFS", "DFS"];
-    const mazeGenerationTehniques = ["Recursive", "Veritcal"];
+    const mazeGenerationTehniques = ["Random", "DFS", "Prim's Algorithm", "Krusal's Algorithm"];
     const clearOptions = ["Board", "Walls", "Path"];
     const speedOptions = ["Slow", "Medium", "Fast"];
 
@@ -34,7 +35,8 @@ const Toolbar = ({selectedAlgorithm, setSelectedAlgorithm, setSelectedClear, set
                     <DropdownSelect className="toolbar-button"
                                     buttonText="Mazes" 
                                     options={mazeGenerationTehniques} 
-                                    setOption={setMazeGenerationTehniques}/>
+                                    setOption={setMazeGenerationTehniques}
+                                    callback={() => setIsMazeGenerating(true)}/>
                 </li>
                 <li className="toolbar-item">
                     <DropdownSelect className="toolbar-button"

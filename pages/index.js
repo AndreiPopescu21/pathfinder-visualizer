@@ -9,6 +9,7 @@ export default function Home() {
   const [visualize, setVisualize] = useState(false);
   const [speed, setSpeed] = useState("");
   const [mazeGenerationTehniques, setMazeGenerationTehniques] = useState("");
+  const [isMazeGenerating, setIsMazeGenerating] = useState(false);
 
   return (
     <div>
@@ -17,7 +18,8 @@ export default function Home() {
                setSelectedClear={setSelectedClear}
                setVisualize={setVisualize}
                setSelectedSpeed={setSpeed}
-               setMazeGenerationTehniques={setMazeGenerationTehniques}/>
+               setMazeGenerationTehniques={setMazeGenerationTehniques}
+               setIsMazeGenerating={setIsMazeGenerating}/>
       <Layout title={"Pathfinder Visualizer"}>
         <Grid selectedAlgorithm={selectedAlgorithm} 
               selectedClear={selectedClear}
@@ -25,7 +27,10 @@ export default function Home() {
               visualize={visualize}
               setVisualize={setVisualize}
               speed={speed}
-              mazeGenerationTehniques={mazeGenerationTehniques}/>
+              mazeGenerationTehniques={mazeGenerationTehniques}
+              isMazeGenerating={isMazeGenerating}
+              setMazeGeneratingTehniques={setMazeGenerationTehniques}
+              setIsMazeGenerating={setIsMazeGenerating}/>
       </Layout>
     </div>
   )

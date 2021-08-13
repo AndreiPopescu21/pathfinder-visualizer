@@ -1,14 +1,10 @@
 import { useState, useEffect } from "react";
 
-import DFS from "../lib/Algorithms/DFS";
-import BFS from "../lib/Algorithms/BFS";
-import Dijkstra from "../lib/Algorithms/Dijkstra";
-import AStar from "../lib/Algorithms/AStar";
-
 import BoardManager from "../lib/BoardManager";
 import Square from "../lib/Square";
 
-const Grid = ({selectedAlgorithm, selectedClear, setSelectedClear, visualize, setVisualize, speed, mazeGenerationTehniques}) => {
+const Grid = ({selectedAlgorithm, selectedClear, setSelectedClear, visualize, setVisualize, speed, 
+    mazeGenerationTehniques, setMazeGeneratingTehniques, isMazeGenerating, setIsMazeGenerating}) => {
 
     const [isMouseDownOnGrid, setIsMouseDownOnGrid] = useState(false);
     const [isStartSquareDragged, setIsStartSquareDragged] = useState(false);
@@ -59,7 +55,9 @@ const Grid = ({selectedAlgorithm, selectedClear, setSelectedClear, visualize, se
     }, [visualize]);
 
     useEffect(() => {
-        console.log(mazeGenerationTehniques);
+        console.log(isMazeGenerating)
+        if(isMazeGenerating)
+            boardManager.generateMaze(mazeGenerationTehniques, setIsMazeGenerating, setMazeGeneratingTehniques);
     }, [mazeGenerationTehniques]);
 
     const onSquareHover = (rowIndex, colIndex) => {
@@ -76,7 +74,7 @@ const Grid = ({selectedAlgorithm, selectedClear, setSelectedClear, visualize, se
 
     const onMouseDownOnGrid = (e, rowIndex, colIndex) => {
         e.preventDefault();
-        if(visualize)
+        if(visualize || isMazeGenerating)
             return;
 
         setIsMouseDownOnGrid(true);
@@ -88,7 +86,7 @@ const Grid = ({selectedAlgorithm, selectedClear, setSelectedClear, visualize, se
     }
 
     const onMouseClick = (rowIndex, colIndex) => {
-        if(visualize)
+        if(visualize || isMazeGenerating)
             return;
         
         boardManager.toggleWall(rowIndex, colIndex)
@@ -99,39 +97,6 @@ const Grid = ({selectedAlgorithm, selectedClear, setSelectedClear, visualize, se
         setIsStartSquareDragged(false);
         setIsFinishSquareDragged(false);
     }
-
-    // const visualizeAlgorithm = () => {
-    //     boardManager.clearByState("path");
-    //     boardManager.clearByState("visited"); 
-    //     BoardManager.clearLastVisitedSquare();
-
-    //     var algorithm;
-    //     switch(selectedAlgorithm) {
-    //         case "DFS":
-    //             algorithm = new DFS(boardManager);
-    //             break;
-    //         case "BFS":
-    //             algorithm = new BFS(boardManager);
-    //             break;
-    //         case "Dijkstra":
-    //             algorithm = new Dijkstra(boardManager);
-    //             break;
-    //         case "A*":
-    //             algorithm = new AStar(boardManager);
-    //             break;
-    //         default:
-    //             algorithm = new DFS(boardManager);
-    //             break;
-    //     }
-
-    //     var timer = setInterval(() => {
-    //         if(algorithm.step()){
-    //             clearInterval(timer);
-    //             boardManager.setPath(algorithm.getPath(), () => setVisualize(false));
-    //         }
-    //     }, delay);
-
-    // }
 
     return (
     <div className="container">
