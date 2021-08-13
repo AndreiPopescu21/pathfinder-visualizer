@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import DFS from "../lib/Algorithms/DFS";
 import BFS from "../lib/Algorithms/BFS";
 import Dijkstra from "../lib/Algorithms/Dijkstra";
+import AStar from "../lib/Algorithms/AStar";
 
 import BoardManager from "../lib/BoardManager";
 import Square from "../lib/Square";
@@ -114,6 +115,9 @@ const Grid = ({selectedAlgorithm, selectedClear, setSelectedClear, visualize, se
                 break;
             case "Dijkstra":
                 algorithm = new Dijkstra(boardManager);
+                break;
+            case "A*":
+                algorithm = new AStar(boardManager);
                 break;
             default:
                 algorithm = new DFS(boardManager);
