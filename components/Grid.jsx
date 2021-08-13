@@ -54,7 +54,7 @@ const Grid = ({selectedAlgorithm, selectedClear, setSelectedClear, visualize, se
 
     useEffect(() => {
         if(visualize){
-            visualizeAlgorithm()
+            boardManager.visualizeAlgorithm(selectedAlgorithm, delay, setVisualize);
         }
     }, [visualize]);
 
@@ -100,38 +100,38 @@ const Grid = ({selectedAlgorithm, selectedClear, setSelectedClear, visualize, se
         setIsFinishSquareDragged(false);
     }
 
-    const visualizeAlgorithm = () => {
-        boardManager.clearByState("path");
-        boardManager.clearByState("visited"); 
-        BoardManager.clearLastVisitedSquare();
+    // const visualizeAlgorithm = () => {
+    //     boardManager.clearByState("path");
+    //     boardManager.clearByState("visited"); 
+    //     BoardManager.clearLastVisitedSquare();
 
-        var algorithm;
-        switch(selectedAlgorithm) {
-            case "DFS":
-                algorithm = new DFS(boardManager);
-                break;
-            case "BFS":
-                algorithm = new BFS(boardManager);
-                break;
-            case "Dijkstra":
-                algorithm = new Dijkstra(boardManager);
-                break;
-            case "A*":
-                algorithm = new AStar(boardManager);
-                break;
-            default:
-                algorithm = new DFS(boardManager);
-                break;
-        }
+    //     var algorithm;
+    //     switch(selectedAlgorithm) {
+    //         case "DFS":
+    //             algorithm = new DFS(boardManager);
+    //             break;
+    //         case "BFS":
+    //             algorithm = new BFS(boardManager);
+    //             break;
+    //         case "Dijkstra":
+    //             algorithm = new Dijkstra(boardManager);
+    //             break;
+    //         case "A*":
+    //             algorithm = new AStar(boardManager);
+    //             break;
+    //         default:
+    //             algorithm = new DFS(boardManager);
+    //             break;
+    //     }
 
-        var timer = setInterval(() => {
-            if(algorithm.step()){
-                clearInterval(timer);
-                boardManager.setPath(algorithm.getPath(), () => setVisualize(false));
-            }
-        }, delay);
+    //     var timer = setInterval(() => {
+    //         if(algorithm.step()){
+    //             clearInterval(timer);
+    //             boardManager.setPath(algorithm.getPath(), () => setVisualize(false));
+    //         }
+    //     }, delay);
 
-    }
+    // }
 
     return (
     <div className="container">
