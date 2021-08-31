@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect } from "react";
 
 import BoardManager from "../lib/BoardManager";
@@ -106,7 +107,7 @@ const Grid = ({selectedAlgorithm, selectedClear, setSelectedClear, visualize, se
             {   
                 boardManager && 
                 board.map((row, rowIndex) => (
-                    <>
+                    <React.Fragment key={rowIndex}>
                     {
                         row.map((col, colIndex) => (
                             <div key={board[rowIndex][colIndex].id} 
@@ -118,7 +119,7 @@ const Grid = ({selectedAlgorithm, selectedClear, setSelectedClear, visualize, se
                                  onClick={() => onMouseClick(rowIndex, colIndex)}/>
                         ))
                     }
-                    </>
+                    </React.Fragment>
                 ))
             }
         </div>

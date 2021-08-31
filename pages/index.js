@@ -39,9 +39,7 @@ export default function Home() {
               setMazeGeneratingTehniques={setMazeGenerationTehniques}
               setIsMazeGenerating={setIsMazeGenerating}/>
 
-        <Modal aria-labelledby="transition-modal-title"
-               aria-describedby="transition-modal-description"
-               className="modal"
+        <Modal className="modal"
                open={showTutorial}
                onClose={() => setShowTutorial(false)}
                closeAfterTransition
