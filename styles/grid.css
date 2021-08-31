@@ -29,7 +29,7 @@
 }
 
 .grid > .start {
-  background: green;
+  background:#00ff00;
   border: 0.1em white solid;
 }
 
@@ -39,7 +39,7 @@
 }
 
 .grid > .visited {
-  background: blue;
+  background:#0080ff;
   border: 0.1em white solid;
 }
 

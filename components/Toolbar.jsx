@@ -6,7 +6,7 @@ import RunIcon from '@material-ui/icons/PlayArrow';
 import MenuIcon from '@material-ui/icons/Menu';
 
 const Toolbar = ({selectedAlgorithm, setSelectedAlgorithm, setSelectedClear, setVisualize, 
-    setSelectedSpeed,setMazeGenerationTehniques, setIsMazeGenerating}) => {
+    setSelectedSpeed,setMazeGenerationTehniques, setIsMazeGenerating, setShowTutorial}) => {
     const algorithms = ["Dijkstra", "A*", "BFS", "DFS"];
     const mazeGenerationTehniques = ["Random", "DFS", "Prim's Algorithm"];
     const clearOptions = ["Board", "Walls", "Path"];
@@ -50,7 +50,14 @@ const Toolbar = ({selectedAlgorithm, setSelectedAlgorithm, setSelectedClear, set
                                     options={speedOptions} 
                                     setOption={setSelectedSpeed}/>
                 </li>
-                <li className="toolbar-item"><Button className="toolbar-button"> Tutorial </Button></li>
+                
+                <li className="toolbar-item">
+                    <Button className="toolbar-button"
+                            onClick={() => setShowTutorial(true)}> 
+                        Tutorial 
+                    </Button>
+                </li>
+                
                 <li className="toolbar-item">
                 <Tooltip title= {selectedAlgorithm=="" ? "Please select an algorithm!" : ""}>
                     <span>

@@ -49,9 +49,11 @@ const Grid = ({selectedAlgorithm, selectedClear, setSelectedClear, visualize, se
     }, [speed]);
 
     useEffect(() => {
-        if(visualize){
+        if(visualize && !isMazeGenerating){
             boardManager.visualizeAlgorithm(selectedAlgorithm, delay, setVisualize);
         }
+        else if(isMazeGenerating)
+            setVisualize(false);
     }, [visualize]);
 
     useEffect(() => {

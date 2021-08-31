@@ -1,0 +1,49 @@
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1em;
+    max-width: 40em;
+}
+
+.close-button-container {
+    text-align: right;
+}
+
+.close-button {
+    background-color: white;
+    border: none;
+    font-size: larger;
+}
+
+.close-button:hover {
+    background-color: #C5C5C5;
+    border-radius: 2px;
+}
+
+.modal-content h1, h2 {
+    color: rgba(120,0,180,1);
+}
+
+.modal-content ol {
+    text-align: left;
+}
+
+.tutorial {
+    text-align: center;
+}
+
+.square {
+    width: .9em;
+    height: .9em;
+    border: 1px solid black;
+}
+
+.legend-item {
+    padding: 1em;
+}
