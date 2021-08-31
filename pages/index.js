@@ -44,11 +44,10 @@ export default function Home() {
                onClose={() => setShowTutorial(false)}
                closeAfterTransition
                BackdropComponent={Backdrop}
-               BackdropProps={{
-                 timeout: 500,
-               }}
-               children={<Tutorial showTutorial={showTutorial} setShowTutorial={setShowTutorial}/>}
-               />
+               BackdropProps={{ timeout: 500 }}
+               >
+                <Tutorial showTutorial={showTutorial} setShowTutorial={setShowTutorial}/>
+        </Modal>
                 
       </Layout>
     </div>
