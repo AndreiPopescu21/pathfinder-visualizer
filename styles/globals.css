@@ -11,3 +11,8 @@ html, body, .main {
     flex-flow: row wrap;
     justify-content: center;
 }
+
+footer {
+    text-align: center;
+    padding: 1em;
+}

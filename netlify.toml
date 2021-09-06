@@ -1,7 +1,7 @@
 # example netlify.toml
 [build]
-  command = "npm run build"
-  functions = "next build"
+  command = "next build"
+  functions = "netlify/functions"
   publish = "out"
 
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.
